@@ -1,5 +1,9 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import bodyParser from 'body-parser';
+
+const app = express();
+
+app.use(bodyParser.json());
 
 
 
@@ -135,38 +139,14 @@ import bodyParser from 'body-parser';
 
 
 
-// Create the Express app
-const app = express();
 
-// Set up JSON body parser middleware
-app.use(bodyParser.json());
 
-// Mock data for products
-const products = [
-  { id: 1, name: 'Product 1', price: 10.99 },
-  { id: 2, name: 'Product 2', price: 15.99 },
-  { id: 3, name: 'Product 3', price: 20.99 },
-];
 
-// Endpoint to get all products
-app.get('/api/products', (req: Request, res: Response) => {
-  res.json(products);
-});
 
-// Endpoint to get a specific product by ID
-app.get('/api/products/:id', (req: Request, res: Response) => {
-  const id = parseInt(req.params.id, 10);
-  const product = products.find((p) => p.id === id);
 
-  if (product) {
-    res.json(product);
-  } else {
-    res.status(404).json({ message: 'Product not found' });
-  }
-});
 
 // Start the server
-const port = 3000;
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
