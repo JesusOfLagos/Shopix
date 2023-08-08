@@ -1,7 +1,7 @@
 
 
 
-class Products {
+class Notifications {
     private to: string;
     private from: string;
     private content: string;
@@ -18,4 +18,4 @@ class Products {
  }
 
 
-export{Products}
+export {Notifications}
