@@ -44,24 +44,24 @@
 // export{Users}
 
 
+// models/Product.ts
 import { DataTypes, Model } from 'sequelize';
 import sequelize from '../config';
 
 class Product extends Model {
-  public productName!: string;
-  public productId!: string;
+  public name!: string;
+  public price!: number;
 }
 
 Product.init(
   {
-    productName: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    productId: {
-      type: DataTypes.STRING,
+    price: {
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
-      unique: true,
     },
   },
   {
@@ -70,4 +70,9 @@ Product.init(
   }
 );
 
+
+Product.hasMany(Review);
+
+
 export default Product;
+

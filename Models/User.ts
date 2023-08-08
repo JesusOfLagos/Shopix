@@ -47,4 +47,9 @@ User.init(
   }
 );
 
+
+User.hasMany(Cart);
+User.hasMany(Review);
+
+
 export default User;
