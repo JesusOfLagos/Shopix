@@ -45,7 +45,7 @@
 
 
 import { DataTypes, Model } from 'sequelize';
-import sequelize from '../config';
+import sequelize from '../sequelize.ts'
 
 class Notification extends Model {
   public from!: string;

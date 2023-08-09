@@ -44,9 +44,8 @@
 // export{Users}
 
 
-// models/Product.ts
 import { DataTypes, Model } from 'sequelize';
-import sequelize from '../config';
+import sequelize from '../sequelize.ts'
 
 class Product extends Model {
   public name!: string;
@@ -72,6 +71,7 @@ Product.init(
 
 
 Product.hasMany(Review);
+Review.belongsTo(Product);
 
 
 export default Product;

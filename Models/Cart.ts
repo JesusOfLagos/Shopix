@@ -55,26 +55,19 @@
 // export{Users}
 
 
-
-// models/User.ts
 import { DataTypes, Model } from 'sequelize';
-import sequelize from '../config';
+import sequelize from '../sequelize.ts'
 
 class Cart extends Model {
-  public maximumItemsInCart!: string;
-  public cartId!: string;
+  public quantity!: number;
 }
 
 Cart.init(
   {
-    maximumItemsInCart: {
-      type: DataTypes.STRING,
+    quantity: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-    },
-    cartId: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
+      defaultValue: 1, 
     },
   },
   {
@@ -84,3 +77,8 @@ Cart.init(
 );
 
 export default Cart;
+
+// Setting up the association in User model
+User.belongsToMany(Product, { through: Cart });
+Product.belongsToMany(User, { through: Cart });
+

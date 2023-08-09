@@ -22,7 +22,7 @@
 
 
 import { DataTypes, Model } from 'sequelize';
-import sequelize from '../config';
+import sequelize from '../sequelize.ts'
 
 class User extends Model {
   public username!: string;
@@ -50,6 +50,11 @@ User.init(
 
 User.hasMany(Cart);
 User.hasMany(Review);
+Review.belongsTo(User);
+
+
+
+
 
 
 export default User;

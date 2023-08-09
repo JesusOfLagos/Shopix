@@ -1,6 +1,6 @@
-// models/Review.ts
+
 import { DataTypes, Model } from 'sequelize';
-import sequelize from '../config';
+import sequelize from '../sequelize.ts'
 
 class Review extends Model {
   public content!: string;
