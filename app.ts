@@ -10,9 +10,8 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import passport from 'passport';
 import socketio, { Server as SocketIOServer, Socket } from 'socket.io';
-import env from 'dotenv';
-import http from 'http';
 import dotenv from 'dotenv';
+import http from 'http';
 dotenv.config();
 
 // Import routes
