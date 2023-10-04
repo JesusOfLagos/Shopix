@@ -15,7 +15,7 @@ import http from 'http';
 dotenv.config();
 
 // Import routes
-const UserRoutes = require('./Routes/Auth/user')
+import UserRoutes from './Routes/user';
 // const BookRoutes = require("./Routes/Services/book")
 
 
@@ -47,7 +47,7 @@ app.use('/', UserRoutes);
 // Connect to the database
 async function connectToDB() {
     try {
-      const mongoURI = process.env.MONGO_URI ?? '';
+      const mongoURI = process.env.MONGO_URI ?? ''
       await connect(mongoURI, {});
       console.log('DB Connection was successful');
     } catch (err) {
